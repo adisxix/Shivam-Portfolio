@@ -1,0 +1,502 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   DESIGN SYSTEM — Shivam Chaturvedi Portfolio
+   Monochrome / Black and White Luxury Aesthetic
+   ======================================== */
+
+:root {
+  --navy-950: #000000;
+  --navy-900: #0a0a0a;
+  --navy-800: #141414;
+  --navy-700: #222222;
+  --cyan-500: #ffffff;
+  --cyan-400: #e5e5e5;
+  --cyan-300: #d4d4d4;
+  --cyan-200: #a3a3a3;
+  --cyan-100: #737373;
+  --cyan-50: #ffffff;
+  --bg-dark: #000000;
+  --bg-card: rgba(15, 15, 15, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(15, 15, 15, 0.6);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ========================================
+   CUSTOM CURSOR — HIDE DEFAULT OS CURSOR
+   ======================================== */
+
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
+
+/* ========================================
+   STAR FIELD BACKGROUND (MONOCHROME VOID)
+   ======================================== */
+
+.star-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle 700px at 50% 15%, rgba(255, 255, 255, 0.035), transparent 75%),
+    radial-gradient(circle 500px at 80% 60%, rgba(255, 255, 255, 0.02), transparent 70%),
+    #000000;
+}
+
+/* Generate star layers with box-shadow */
+.stars-layer-1,
+.stars-layer-2,
+.stars-layer-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+}
+
+.stars-layer-1 {
+  width: 1px;
+  height: 1px;
+  box-shadow:
+    25px 50px #ffffff, 150px 100px #d4d4d4, 300px 200px #ffffff,
+    450px 80px #a3a3a3, 600px 300px #ffffff, 750px 150px #e5e5e5,
+    900px 350px #ffffff, 1050px 50px #d4d4d4, 1200px 250px #a3a3a3,
+    100px 400px #ffffff, 250px 500px #ffffff, 400px 450px #e5e5e5,
+    550px 550px #ffffff, 700px 480px #d4d4d4, 850px 520px #a3a3a3,
+    1000px 400px #ffffff, 1150px 530px #ffffff, 50px 650px #ffffff,
+    200px 700px #e5e5e5, 350px 680px #ffffff, 500px 720px #d4d4d4,
+    650px 670px #a3a3a3, 800px 750px #ffffff, 950px 690px #ffffff,
+    1100px 710px #e5e5e5, 75px 850px #ffffff, 225px 900px #a3a3a3,
+    375px 870px #ffffff, 525px 920px #d4d4d4, 675px 860px #a3a3a3,
+    825px 930px #ffffff, 975px 880px #ffffff, 1125px 910px #e5e5e5,
+    30px 1050px #ffffff, 180px 1100px #d4d4d4, 330px 1070px #e5e5e5,
+    480px 1120px #ffffff, 630px 1060px #ffffff, 780px 1130px #a3a3a3,
+    930px 1080px #ffffff, 1080px 1110px #d4d4d4, 1230px 1050px #ffffff,
+    120px 1250px #ffffff, 270px 1300px #e5e5e5, 420px 1280px #ffffff,
+    570px 1320px #d4d4d4, 720px 1270px #a3a3a3, 870px 1330px #ffffff,
+    1020px 1290px #ffffff, 1170px 1310px #e5e5e5, 60px 1450px #ffffff,
+    210px 1500px #d4d4d4, 360px 1480px #e5e5e5, 510px 1520px #ffffff,
+    660px 1470px #a3a3a3, 810px 1530px #ffffff, 960px 1490px #d4d4d4,
+    1110px 1510px #ffffff, 1260px 1470px #ffffff, 140px 1650px #e5e5e5,
+    290px 1700px #ffffff, 440px 1680px #d4d4d4, 590px 1720px #a3a3a3,
+    740px 1670px #ffffff, 890px 1730px #ffffff, 1040px 1690px #e5e5e5,
+    1190px 1710px #ffffff, 45px 1850px #d4d4d4, 195px 1900px #e5e5e5,
+    345px 1880px #ffffff, 495px 1920px #a3a3a3, 645px 1870px #ffffff,
+    795px 1930px #d4d4d4, 945px 1890px #ffffff, 1095px 1910px #e5e5e5;
+  animation: starMove 120s linear infinite;
+}
+
+.stars-layer-2 {
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    100px 150px #ffffff, 350px 250px #e5e5e5, 600px 50px #ffffff,
+    850px 350px #d4d4d4, 1100px 200px #ffffff, 200px 450px #e5e5e5,
+    450px 550px #ffffff, 700px 400px #d4d4d4, 950px 500px #ffffff,
+    1200px 450px #e5e5e5, 50px 700px #ffffff, 300px 750px #d4d4d4,
+    550px 680px #ffffff, 800px 730px #e5e5e5, 1050px 700px #ffffff,
+    150px 950px #d4d4d4, 400px 900px #ffffff, 650px 980px #e5e5e5,
+    900px 920px #ffffff, 1150px 960px #d4d4d4, 75px 1150px #ffffff,
+    325px 1200px #e5e5e5, 575px 1180px #ffffff, 825px 1220px #d4d4d4,
+    1075px 1170px #ffffff, 175px 1400px #e5e5e5, 425px 1380px #ffffff,
+    675px 1420px #d4d4d4, 925px 1370px #ffffff, 1175px 1410px #e5e5e5,
+    250px 1600px #ffffff, 500px 1580px #d4d4d4, 750px 1620px #ffffff,
+    1000px 1570px #e5e5e5, 1250px 1610px #ffffff;
+  animation: starMove 90s linear infinite;
+}
+
+.stars-layer-3 {
+  width: 3px;
+  height: 3px;
+  box-shadow:
+    200px 100px #ffffff, 500px 300px #e5e5e5, 800px 200px #ffffff,
+    1100px 400px #e5e5e5, 300px 500px #ffffff, 600px 600px #e5e5e5,
+    900px 550px #ffffff, 1200px 350px #e5e5e5, 100px 800px #ffffff,
+    400px 750px #e5e5e5, 700px 850px #ffffff, 1000px 780px #e5e5e5,
+    250px 1050px #ffffff, 550px 1000px #e5e5e5, 850px 1080px #ffffff,
+    1150px 1020px #e5e5e5, 150px 1300px #ffffff, 450px 1250px #e5e5e5,
+    750px 1320px #ffffff, 1050px 1270px #e5e5e5;
+  animation: starMove 70s linear infinite;
+}
+
+@keyframes starMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2000px); }
+}
+
+/* ========================================
+   GLASSMORPHISM UTILITIES
+   ======================================== */
+
+.glass {
+  background: rgba(15, 15, 15, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.7) 0%, rgba(10, 10, 10, 0.8) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.08), 0 12px 36px rgba(0, 0, 0, 0.8);
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   TECH MARQUEE
+   ======================================== */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-track > * {
+  flex-shrink: 0;
+}
+
+/* ========================================
+   GLOW UTILITIES
+   ======================================== */
+
+.text-glow {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.text-glow-subtle {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.border-glow {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   SECTION REVEAL ANIMATION
+   ======================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   HERO TYPEWRITER
+   ======================================== */
+
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #ffffff;
+  animation: typewriterReveal 3s steps(45) 0.8s forwards, blink 1s step-end infinite;
+  width: 0;
+}
+
+@keyframes typewriterReveal {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #ffffff; }
+}
+
+/* ========================================
+   PROFILE CARD GLOW RING
+   ======================================== */
+
+.profile-glow-ring {
+  position: relative;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ffffff, #525252, #ffffff, #171717);
+  background-size: 300% 300%;
+  animation: gradientShift 6s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.profile-glow-ring::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #ffffff, #737373, #ffffff);
+  background-size: 300% 300%;
+  animation: gradientShift 6s ease-in-out infinite;
+  filter: blur(14px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ========================================
+   BROWSER-STYLE PROJECT CARD
+   ======================================== */
+
+.browser-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.browser-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.1), 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.browser-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(18, 18, 18, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.browser-address-bar {
+  flex: 1;
+  margin-left: 8px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(12, 12, 12, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  background: rgba(18, 18, 18, 0.95);
+}
+
+.form-input.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+/* ========================================
+   MISC
+   ======================================== */
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 35%, #a3a3a3 70%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.2));
+}
+
+.nav-link {
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 0;
+  border: none;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-fade-in {
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Supersonic Kite-Plane & Light Wave Flight Keyframes */
+@keyframes planeSoar {
+  0% {
+    transform: translateY(115vh) scale(0.65);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-130vh) scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes lightWave {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+.animate-plane-soar {
+  animation: planeSoar 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-light-wave {
+  animation: lightWave 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
